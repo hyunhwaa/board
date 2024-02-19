@@ -1,0 +1,88 @@
+.user{
+    margin-top: 10%;
+    border-bottom: 1px solid #e2dede;
+}
+.liked-row {
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px; /* 부트스트랩과 동일한 마진 값 적용 */
+    margin-left: -15px; /* 부트스트랩과 동일한 마진 값 적용 */
+}
+.image-container {
+    position: relative;
+}
+.user-image{
+    top: 0;
+    left: 0;
+    width: 30%;
+}
+.post-card {
+    padding-top: 10px;
+    background-color: #f0f8ff;
+    margin-left: 70px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 200px;
+    height: 340px;
+    text-align: center;
+}
+.card-blank{
+    margin-left: 160px;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-img {
+    margin-top: -6%;
+    width: 130px;
+    height: 180px;
+}
+
+.post-details {
+    padding: 1rem;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.post-author {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+.liked-row {
+    margin-top: 3%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-right: -15px; /* 부트스트랩과 동일한 마진 값 적용 */
+    margin-left: -15px; /* 부트스트랩과 동일한 마진 값 적용 */
+}
+.header {
+    font-size: 30px;
+    font-family: 'Arial', sans-serif; /* 예쁜 폰트 이름으로 변경하세요 */
+    font-weight: bold; /* 폰트 굵기 설정 */
+    color: #333; /* 제목 색상 설정 */
+    letter-spacing: 2px; /* 글자 간격 조절 */
+}
+.nav-liked{
+    color: #edb92d !important;
+}
+.top-bar {
+      font-size: 15px;
+      line-height: 0;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+}
+.bg-primary {
+    background-color: #5980ac !important;
+}

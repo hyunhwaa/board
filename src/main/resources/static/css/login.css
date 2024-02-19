@@ -1,0 +1,171 @@
+header{
+                display:flex;
+                justify-content: center;
+            }
+            form{
+                width: 30%;
+                padding:10px;
+                margin: 0 auto;
+            }
+            .input-box{
+                position:relative;
+                margin:10px 0;
+            }
+            .input-box > input{
+                background:transparent;
+                border:none;
+                border-bottom: solid 1px #ccc;
+                padding:20px 0px 5px 0px;
+                font-size:14pt;
+                width:100%;
+            }
+            input::placeholder{
+                color:transparent;
+            }
+            input:placeholder-shown + label{
+                color:#aaa;
+                font-size:14pt;
+                top:15px;
+
+            }
+            input:focus + label, label{
+                color:#8aa1a1;
+                font-size:10pt;
+                pointer-events: none;
+                position: absolute;
+                left:0px;
+                top:0px;
+                transition: all 0.2s ease ;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+            }
+
+            input:focus, input:not(:placeholder-shown){
+                border-bottom: solid 1px #8aa1a1;
+                outline:none;
+            }
+            input[type=submit]{
+                background-color: #4a6983;
+                border:none;
+                color:white;
+                border-radius: 5px;
+                width:100%;
+                height:45px;
+                font-size: 14pt;
+                margin-top:100px;
+            }
+            #forgot{
+                text-align: right;
+                font-size:12pt;
+                color:rgb(164, 164, 164);
+                margin:10px 0px;
+            }
+            h2{
+            text-align: center;
+            margin-top: 10%;
+            }
+
+            /* 부모 요소 스타일링 */
+            .parent-container {
+                width: 50%; /* 부모 요소의 너비를 설정 */
+                margin: 0 auto; /* 가운데 정렬 */
+                text-align: center;
+            }
+
+            /* 버튼 스타일링 */
+            button {
+                background-color: #a7b28b;
+                border: none;
+                color: white;
+                border-radius: 5px;
+                width: 60%;
+                height: 45px;
+                font-size: 14pt;
+                margin-top: 20px;
+            }
+
+            /* 체크박스 컨테이너 스타일링 */
+            .checkbox-container {
+                display: flex;
+                align-items: center;
+                margin-left: 8px;
+            }
+
+            /* 체크박스 표시 스타일링 */
+            .checkbox-container input {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                width: 24px;
+                height: 24px;
+                border: 2px solid #4a6983;
+                border-radius: 4px;
+                outline: none;
+                cursor: pointer;
+                margin-left: 160px;
+                position: relative;
+                margin-top: 10px; /* 원하는 만큼 조절 */
+            }
+
+            /* 체크박스 표시의 체크 표시 스타일링 */
+            .checkbox-container input:checked::after {
+                content: "✔";
+                font-size: 18px;
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none; /* 체크 마크를 클릭할 수 없도록 설정 */
+            }
+
+            /* 체크박스 표시의 체크 표시의 배경색 스타일링 */
+            .checkbox-container input:checked {
+                background-color: #4a6983;
+                border-color: #4a6983;
+            }
+
+            .label-text {
+                color: #afadad; /* 원하는 글자 색상으로 설정 */
+                background-color: transparent; /* 원하는 배경색으로 설정 (예: 투명) */
+                font-size: 14pt; /* 원하는 글자 크기로 설정 */
+                margin-top: 9px;
+                margin-left: 1px;
+            }
+
+            body {
+                margin: 0;
+                font-family: 'Arial', sans-serif;
+            }
+
+
+
+
+        .duplicated-username{
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #f25c5c;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ff000000;
+        }
+
+        .success-message{
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #316b36;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ff000000;
+        }
+
+        .not-matching-info{
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #f25c5c;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ff000000;
+        }
+
