@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 public class BoardService {
 
     private final BoardRepository boardRepository;
-
     /**
     게시글 작성
      */

@@ -4,12 +4,11 @@ import com.daeta.board.entity.Book;
 import lombok.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class BookInfoDto {
     private Long id;
@@ -24,41 +23,51 @@ public class BookInfoDto {
     private Integer likeCount;
     private List<CommentResponseDto> commentList;
     @Builder
-    private BookInfoDto(Book entity, List<CommentResponseDto> list){
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.author = entity.getAuthor();
-        this.image = entity.getImage();
-        this.discount = entity.getDiscount();
-        this.publisher = entity.getPublisher();
-        this.pubdate = entity.getPubdate();
-        this.isbn = entity.getIsbn();
-        this.likeCount = entity.getLikesList() !=null ? entity.getLikesList().size() : 0;
-        this.commentList = list;
+    private BookInfoDto(Long id, String title, String author, String image, String discount,
+                        String publisher, String pubdate, String isbn, String description,
+                        Integer likeCount, List<CommentResponseDto> commentList) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.image = image;
+        this.discount = discount;
+        this.publisher = publisher;
+        this.pubdate = pubdate;
+        this.isbn = isbn;
+        this.description = description;
+        this.likeCount = likeCount;
+        this.commentList = commentList;
     }
-    public BookInfoDto(Book entity){
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.author = entity.getAuthor();
-        this.image = entity.getImage();
-        this.discount = entity.getDiscount();
-        this.publisher = entity.getPublisher();
-        this.pubdate = entity.getPubdate();
-        this.isbn = entity.getIsbn();
-        this.description = entity.getDescription();
-        //getLikesList() 좋아요 목록 가져온 뒤 만약 null이 아니면 size() 가져와서 likeCount 설정
-        this.likeCount = entity.getLikesList() != null ?  entity.getLikesList().size() : 0;
-        //getCommentList() 댓글 목록을 가져온 뒤 map(CommentResponseDto::from) 사용해서 각각의 댓글을 commentResponseDto로 반환
-        this.commentList = entity.getCommentList().stream().map(CommentResponseDto::from).toList();
 
-    }
-    public static BookInfoDto from(Book entity, List<CommentResponseDto> list){
+    public static BookInfoDto from(Book entity, List<CommentResponseDto> list) {
         return BookInfoDto.builder()
-                .entity(entity)
-                .list(list)
+                .id(entity.getId())
+                .title(entity.getTitle())
+                .author(entity.getAuthor())
+                .image(entity.getImage())
+                .discount(entity.getDiscount())
+                .publisher(entity.getPublisher())
+                .pubdate(entity.getPubdate())
+                .isbn(entity.getIsbn())
+                .description(entity.getDescription())
+                .likeCount(entity.getLikesList() != null ? entity.getLikesList().size() : 0)
+                .commentList(list)
                 .build();
     }
-    public static BookInfoDto from(Book entity){
-        return new BookInfoDto(entity);
+
+    public static BookInfoDto from(Book entity) {
+        return BookInfoDto.builder()
+                .id(entity.getId())
+                .title(entity.getTitle())
+                .author(entity.getAuthor())
+                .image(entity.getImage())
+                .discount(entity.getDiscount())
+                .publisher(entity.getPublisher())
+                .pubdate(entity.getPubdate())
+                .isbn(entity.getIsbn())
+                .description(entity.getDescription())
+                .likeCount(entity.getLikesList() != null ? entity.getLikesList().size() : 0)
+                .commentList(entity.getCommentList().stream().map(CommentResponseDto::from).collect(Collectors.toList()))
+                .build();
     }
 }

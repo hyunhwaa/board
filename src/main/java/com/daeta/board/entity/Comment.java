@@ -18,28 +18,21 @@ public class Comment extends Timestamped{
     @Id
     @GeneratedValue
     private Long id;
-
     @Column(nullable = false, length = 2000)
     private String contents;
-
     @ManyToOne
     @JoinColumn(name = "isbn", referencedColumnName = "isbn")
     private Book book;
-
     @ManyToOne
     @JoinColumn(name = "board_id")
     private Board board;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
     @OneToMany(mappedBy = "comment", cascade = CascadeType.REMOVE)
     private List<Likes> likeList = new ArrayList<>();
-
     @Column
     private Long parentCommentId;
-
     @OrderBy("createdAt asc")
     @OneToMany(mappedBy = "parentCommentId", cascade = CascadeType.ALL)
     private List<Comment> childCommentList = new ArrayList<>();
@@ -66,10 +59,6 @@ public class Comment extends Timestamped{
         book.getCommentList().add(comment);
         return comment;
     }
-    public void addChildComment(Comment child){
-        this.getChildCommentList().add(child);
-    }
-
     public static Comment of(CommentRequestDto requestDto, Board board, User user){
         Comment comment = Comment.builder()
                 .requestDto(requestDto)

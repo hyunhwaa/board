@@ -78,9 +78,9 @@ public class BookInfoService {
                 if (existingBookOptional.isEmpty()) {
                     Book book = Book.of(bookInfoDto);
                     bookRepository.save(book);
-                    bookInfoDto.setId(book.getId());
+                    bookInfoDto = BookInfoDto.from(book);
                 }else{
-                    bookInfoDto.setId(existingBookOptional.get().getId());
+                    bookInfoDto = BookInfoDto.from(existingBookOptional.get());
                 }
             }
             // 책 목록을 페이지로 변환하여 반환
@@ -101,20 +101,14 @@ public class BookInfoService {
      * 책 상세 정보
      */
     public BookInfoDto getBookDetail(String isbn, Long commentId, User user){
-
         Optional<Book> existingBook = bookRepository.findByIsbn(isbn);
-        BookInfoDto bookInfoDto = new BookInfoDto();
-
         if (existingBook.isPresent()) {
             Book book = existingBook.get();
-            bookInfoDto = BookInfoDto.from(book);
-
-            Optional<Comment> comment = commentRepository.findByIdAndUser(commentId, user);
-            BookInfoDto finalBookInfoDto = bookInfoDto;
-            comment.ifPresent(c -> finalBookInfoDto.setCommentList(Collections.singletonList(CommentResponseDto.from(c))));
+            // BookInfoDto를 생성하여 반환
+            return BookInfoDto.from(book);
         }
-
-        return bookInfoDto;
+        // Book이 존재하지 않는 경우 빈 BookInfoDto를 반환
+        return new BookInfoDto();
     }
 
     /**

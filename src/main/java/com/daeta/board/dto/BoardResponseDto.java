@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-@Setter
 public class BoardResponseDto {
     private Long id;
     private String title;

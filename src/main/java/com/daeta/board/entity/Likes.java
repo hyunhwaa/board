@@ -15,19 +15,15 @@ public class Likes {
     @Id
     @GeneratedValue
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
     @ManyToOne
     @JoinColumn(name = "book_id",  referencedColumnName = "id")
     private Book book;
-
     @ManyToOne
     @JoinColumn(name = "board_id")
     private Board board;
-
     @ManyToOne
     @JoinColumn(name = "comment_id")
     private Comment comment;
