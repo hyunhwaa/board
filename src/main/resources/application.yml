@@ -19,9 +19,9 @@ spring:
       thymeleaf:
         cache: false
 
-  jwt:
-    header: Authorization
-    #secret : 별도 문자열을 base64로 암호화한값
-    secret: c3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwtc3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwtc3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwK
-    #토큰만료시간(ms)
-    token-validity-in-seconds: 3600
+#  jwt:
+#    header: Authorization
+#    #secret : 별도 문자열을 base64로 암호화한값
+#    secret: c3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwtc3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwtc3ByaW5nYm9vdC1qd3QtdHV0b3JpYWwK
+#    #토큰만료시간(ms)
+#    token-validity-in-seconds: 3600

@@ -89,11 +89,10 @@ public class BookInfoService {
             return Page.empty();
         }
     }
-
+    //개인 키
     private HttpHeaders createHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Naver-Client-Id", "05yD1w2OeU24HFfyVAU2");
-        headers.set("X-Naver-Client-Secret", "SLfa8DnFEP");
+        //키 값
         return headers;
     }
 
